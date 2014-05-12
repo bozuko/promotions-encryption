@@ -14,7 +14,7 @@ class PromotionsEncryption_UI_MetaBoxes extends Promotions_UI_MetaBoxes
    */
   public function encryption_settings( $post )
   {
-    wp_enqueue_script('sweep-encryption', SWEEPS_URL.'/resources/js/encryption.js', array('jquery'));
+    wp_enqueue_script('sweep-encryption', PROMOTIONS_ENCRYPTION_URL.'/assets/javascripts/encryption.js', array('jquery'));
     $key  = get_post_meta( $post->ID, 'openssl_public_key' );
     $user = get_post_meta( $post->ID, 'openssl_creator' );
     if( $user ){

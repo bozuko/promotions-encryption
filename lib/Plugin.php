@@ -6,7 +6,7 @@ class PromotionsEncryption_Plugin extends Promotions_Plugin_Base
   /**
    * @wp.action     promotions/init
    */
-  public function init()
+  public function promotions_init()
   {
     Snap::inst('PromotionsEncryption_UI_MetaBoxes');
   }

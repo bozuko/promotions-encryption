@@ -12,7 +12,7 @@ License: Proprietary
 add_action('promotions/plugins/load', function()
 {
   define('PROMOTIONS_ENCRYPTION_DIR', dirname(__FILE__));
-  define('PROMOTIONS_ENCRYPTION_URI', plugins_url('/', __FILE__));
+  define('PROMOTIONS_ENCRYPTION_URL', plugins_url('/', __FILE__));
   
   Snap_Loader::register( 'PromotionsEncryption', PROMOTIONS_ENCRYPTION_DIR . '/lib' );
   Snap::inst('PromotionsEncryption_Plugin');
