@@ -15,11 +15,11 @@ class PromotionsEncryption_UI_MetaBoxes extends Promotions_UI_MetaBoxes
   public function encryption_settings( $post )
   {
     wp_enqueue_script('sweep-encryption', PROMOTIONS_ENCRYPTION_URL.'/assets/javascripts/encryption.js', array('jquery'));
-    $key  = get_post_meta( $post->ID, 'openssl_public_key' );
-    $user = get_post_meta( $post->ID, 'openssl_creator' );
+    $key  = get_post_meta( $post->ID, 'openssl_public_key', true );
+    $user = get_post_meta( $post->ID, 'openssl_creator', trrue );
     if( $user ){
       $user = get_userdata((int)$user);
-      $create_date = get_post_meta( $post->ID, 'openssl_create_date' );
+      $create_date = get_post_meta( $post->ID, 'openssl_create_date', true );
     }
     $before = Snap::inst('Promotions_Functions')->is_before_start( $post->ID );
     ?>
@@ -56,8 +56,11 @@ class PromotionsEncryption_UI_MetaBoxes extends Promotions_UI_MetaBoxes
           }
           ?>
         </select>
-        
-        <p><a href="#" class="button button-primary" data-encrypt-action="enable">Enable Encryption</a></p>
+        <p>
+          <a href="#" class="button button-primary" data-encrypt-action="enable">
+            Enable Encryption
+          </a>
+        </p>
         <?php
       }
       else {
